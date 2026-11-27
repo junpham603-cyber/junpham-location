@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d18">
+<title>JUNPHAM | Digital Advertising Agency</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#080d18;color:#fff;
+  line-height:1.6;
+}
+header{
+  display:flex;justify-content:space-between;
+  align-items:center;padding:22px 8%;
+  border-bottom:1px solid #1c2c40;
+}
+.logo{font-size:27px;font-weight:900;color:#43d9ff;letter-spacing:3px}
+nav a{color:#c4d3e3;text-decoration:none;margin-left:22px;font-size:14px}
+nav a:hover{color:#43d9ff}
+.hero{
+  min-height:570px;padding:100px 8%;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;
+  background:radial-gradient(ellipse at center,#12304b 0%,#080d18 65%);
+}
+.tag{color:#43d9ff;letter-spacing:4px;font-size:12px}
+h1{font-size:clamp(40px,7vw,76px);margin:20px 0;line-height:1.1}
+h1 span{color:#43d9ff}
+.hero p{color:#a9b9cc;max-width:600px}
+.btn{
+  display:inline-block;margin-top:28px;
+  background:#16b9ed;color:#06111c;
+  padding:14px 28px;border-radius:7px;
+  font-weight:bold;text-decoration:none;border:0;
+  cursor:pointer;
+}
+.btn:hover{background:#69ddff}
+section{padding:75px 8%;text-align:center}
+h2{font-size:32px;margin-bottom:18px}
+.sub{color:#91a4bb;margin-bottom:35px}
+.services{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+ gap:20px;
+}
+.service{
+ background:#101c2b;border:1px solid #20354c;
+ padding:30px 20px;border-radius:12px;
+}
+.service h3{color:#43d9ff;margin-bottom:12px}
+.service p{color:#9fb0c4;font-size:14px}
+.location{
+ max-width:650px;margin:auto;padding:32px;
+ background:#101c2b;border:1px solid #23415a;
+ border-radius:14px;
+}
+.location p{color:#a9b9cc;font-size:14px}
+.status{margin-top:18px;color:#43d9ff;font-size:14px}
+input[type=checkbox]{accent-color:#25c9ff;width:17px;height:17px}
+.consent{
+ display:flex;gap:10px;text-align:left;
+ align-items:flex-start;margin-top:20px;
+ color:#c0d0e1;font-size:13px;
+}
+button:disabled{opacity:.5;cursor:not-allowed}
+footer{
+ padding:35px 8%;text-align:center;
+ border-top:1px solid #20354c;color:#788da5;
+ font-size:13px;
+}
+footer a{color:#43d9ff;text-decoration:none}
+@media(max-width:600px){
+ header{padding:18px 5%;flex-wrap:wrap;gap:12px}
+ nav a{margin-left:10px}
+ .hero{padding:75px 6%}
+ section{padding:55px 6%}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">JUNPHAM.</div>
+ <nav>
+  <a href="#home">Trang chủ</a>
+  <a href="#services">Dịch vụ</a>
+  <a href="#location">Chia sẻ vị trí</a>
+  <a href="#contact">Liên hệ</a>
+ </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="tag">DIGITAL ADVERTISING AGENCY</div>
+ <h1>MAKE YOUR BRAND<br><span>STAND OUT.</span></h1>
+ <p>Giải pháp quảng cáo kỹ thuật số chuyên nghiệp.
+ Tăng nhận diện thương hiệu và phát triển kinh doanh trên nền tảng số.</p>
+ <a href="#services" class="btn">KHÁM PHÁ DỊCH VỤ</a>
+</section>
+
+<section id="services">
+ <h2>DỊCH VỤ CỦA CHÚNG TÔI</h2>
+ <p class="sub">Phát triển thương hiệu trên các nền tảng kỹ thuật số.</p>
+ <div class="services">
+  <div class="service">
+   <h3>Facebook Ads</h3>
+   <p>Quảng cáo và tiếp cận khách hàng tiềm năng.</p>
+  </div>
+  <div class="service">
+   <h3>TikTok Ads</h3>
+   <p>Phát triển nội dung và tăng khả năng tiếp cận.</p>
+  </div>
+  <div class="service">
+   <h3>Google Ads</h3>
+   <p>Tiếp cận khách hàng qua công cụ tìm kiếm.</p>
+  </div>
+  <div class="service">
+   <h3>Zalo Ads</h3>
+   <p>Quảng bá sản phẩm và dịch vụ trên Zalo.</p>
+  </div>
+ </div>
+</section>
+
+<section id="location">
+ <h2>CHIA SẺ VỊ TRÍ</h2>
+ <p class="sub">Tùy chọn chia sẻ vị trí để hỗ trợ tư vấn dịch vụ theo khu vực.</p>
+
+ <div class="location">
+  <h3>📍 Chia sẻ vị trí GPS</h3>
+  <p style="margin-top:12px">
+   Nếu bạn đồng ý, trình duyệt sẽ yêu cầu quyền truy cập vị trí.
+   Vị trí chỉ được gửi đến máy chủ khi bạn chủ động đồng ý.
+  </p>
+
+  <label class="consent">
+   <input type="checkbox" id="consent">
+   <span>Tôi đồng ý chia sẻ vị trí hiện tại cho JUNPHAM để được hỗ trợ tư vấn theo khu vực. Tôi hiểu rằng có thể từ chối hoặc thu hồi quyền bất cứ lúc nào.</span>
+  </label>
+
+  <button class="btn" id="shareBtn" disabled>
+   ĐỒNG Ý VÀ CHIA SẺ VỊ TRÍ
+  </button>
+
+  <div class="status" id="status" role="status" aria-live="polite">
+   Bạn chưa chia sẻ vị trí.
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <h2>LIÊN HỆ JUNPHAM</h2>
+ <p class="sub">Cùng phát triển thương hiệu của bạn.</p>
+ <p>Email: junjunn2866@gmail.com</p>
+</section>
+</main>
+
+<footer>
+ © 2026 JUNPHAM DIGITAL ADVERTISING AGENCY
+ <br><br>
+ <a href="admin.html">Quản trị hệ thống</a>
+</footer>
+
+<script>
+const checkbox = document.getElementById("consent");
+const button = document.getElementById("shareBtn");
+const statusBox = document.getElementById("status");
+
+checkbox.addEventListener("change", () => {
+ button.disabled = !checkbox.checked;
+});
+
+button.addEventListener("click", () => {
+ if (!checkbox.checked) return;
+
+ if (!navigator.geolocation) {
+  statusBox.textContent = "Trình duyệt không hỗ trợ GPS.";
+  return;
+ }
+
+ button.disabled = true;
+ statusBox.textContent = "Đang yêu cầu quyền vị trí...";
+
+ navigator.geolocation.getCurrentPosition(
+  async (position) => {
+   const data = {
+    latitude: position.coords.latitude,
+    longitude: position.coords.longitude,
+    accuracy: position.coords.accuracy,
+    consent: true,
+    consentAt: new Date().toISOString()
+   };
+
+   statusBox.textContent =
+    "Bạn đã đồng ý chia sẻ vị trí. Đang chờ kết nối máy chủ.";
+
+   try {
+    // Chỉ gửi dữ liệu sau khi người dùng đã chấp thuận.
+    // Backend sẽ được cấu hình ở bước tiếp theo.
+    const response = await fetch("/api/location", {
+     method: "POST",
+     headers: {"Content-Type": "application/json"},
+     body: JSON.stringify(data)
+    });
+
+    if (!response.ok) throw new Error("Server error");
+
+    statusBox.textContent = "Chia sẻ vị trí thành công.";
+   } catch (error) {
+    statusBox.textContent =
+     "Đã lấy được vị trí theo sự đồng ý của bạn, nhưng máy chủ chưa được kết nối. Dữ liệu chưa được lưu.";
+   }
+   button.disabled = false;
+  },
+  (error) => {
+   const messages = {
+    1: "Bạn đã từ chối quyền truy cập vị trí.",
+    2: "Không xác định được vị trí.",
+    3: "Yêu cầu GPS đã hết thời gian."
+   };
+   statusBox.textContent = messages[error.code] || "Không lấy được vị trí.";
+   button.disabled = false;
+  },
+  {
+   enableHighAccuracy: true,
+   timeout: 15000,
+   maximumAge: 0
+  }
+ );
+});
+</script>
+</body>
+</html>
