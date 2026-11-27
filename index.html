@@ -5,231 +5,567 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080d18">
+<meta name="description" content="JUNPHAM - Digital Advertising Agency. Giải pháp quảng cáo Facebook, TikTok, Google và Zalo.">
 <title>JUNPHAM | Digital Advertising Agency</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:Arial,sans-serif;
-  background:#080d18;color:#fff;
-  line-height:1.6;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-header{
-  display:flex;justify-content:space-between;
-  align-items:center;padding:22px 8%;
-  border-bottom:1px solid #1c2c40;
+
+html {
+  scroll-behavior: smooth;
 }
-.logo{font-size:27px;font-weight:900;color:#43d9ff;letter-spacing:3px}
-nav a{color:#c4d3e3;text-decoration:none;margin-left:22px;font-size:14px}
-nav a:hover{color:#43d9ff}
-.hero{
-  min-height:570px;padding:100px 8%;
-  display:flex;flex-direction:column;
-  justify-content:center;align-items:center;text-align:center;
-  background:radial-gradient(ellipse at center,#12304b 0%,#080d18 65%);
+
+body {
+  font-family: Arial, sans-serif;
+  background: #080d18;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
-.tag{color:#43d9ff;letter-spacing:4px;font-size:12px}
-h1{font-size:clamp(40px,7vw,76px);margin:20px 0;line-height:1.1}
-h1 span{color:#43d9ff}
-.hero p{color:#a9b9cc;max-width:600px}
-.btn{
-  display:inline-block;margin-top:28px;
-  background:#16b9ed;color:#06111c;
-  padding:14px 28px;border-radius:7px;
-  font-weight:bold;text-decoration:none;border:0;
-  cursor:pointer;
+
+/* Tuyết rơi */
+#snow {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
 }
-.btn:hover{background:#69ddff}
-section{padding:75px 8%;text-align:center}
-h2{font-size:32px;margin-bottom:18px}
-.sub{color:#91a4bb;margin-bottom:35px}
-.services{
- display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
- gap:20px;
+
+/* HEADER */
+header {
+  position: relative;
+  z-index: 101;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 8%;
+  background: rgba(8,13,24,.92);
+  border-bottom: 1px solid #20364c;
+  backdrop-filter: blur(12px);
 }
-.service{
- background:#101c2b;border:1px solid #20354c;
- padding:30px 20px;border-radius:12px;
+
+.logo {
+  font-size: 29px;
+  font-weight: 900;
+  color: #43d9ff;
+  letter-spacing: 4px;
+  text-shadow: 0 0 18px #168dbb;
 }
-.service h3{color:#43d9ff;margin-bottom:12px}
-.service p{color:#9fb0c4;font-size:14px}
-.location{
- max-width:650px;margin:auto;padding:32px;
- background:#101c2b;border:1px solid #23415a;
- border-radius:14px;
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
 }
-.location p{color:#a9b9cc;font-size:14px}
-.status{margin-top:18px;color:#43d9ff;font-size:14px}
-input[type=checkbox]{accent-color:#25c9ff;width:17px;height:17px}
-.consent{
- display:flex;gap:10px;text-align:left;
- align-items:flex-start;margin-top:20px;
- color:#c0d0e1;font-size:13px;
+
+nav a {
+  color: #c4d3e3;
+  text-decoration: none;
+  font-size: 14px;
+  transition: .3s;
 }
-button:disabled{opacity:.5;cursor:not-allowed}
-footer{
- padding:35px 8%;text-align:center;
- border-top:1px solid #20354c;color:#788da5;
- font-size:13px;
+
+nav a:hover {
+  color: #43d9ff;
 }
-footer a{color:#43d9ff;text-decoration:none}
-@media(max-width:600px){
- header{padding:18px 5%;flex-wrap:wrap;gap:12px}
- nav a{margin-left:10px}
- .hero{padding:75px 6%}
- section{padding:55px 6%}
+
+/* HERO */
+.hero {
+  min-height: 600px;
+  padding: 100px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center, #123653 0%, #080d18 70%);
+}
+
+.tag {
+  color: #43d9ff;
+  letter-spacing: 5px;
+  font-size: 13px;
+}
+
+h1 {
+  font-size: clamp(42px, 8vw, 82px);
+  line-height: 1.12;
+  margin: 25px 0;
+  font-weight: 900;
+}
+
+h1 span {
+  color: #43d9ff;
+  text-shadow: 0 0 25px #168dbb;
+}
+
+.hero p {
+  max-width: 650px;
+  color: #a9b9cc;
+  font-size: 16px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 7px;
+  background: linear-gradient(90deg,#12b9eb,#58ddff);
+  color: #06111c;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px #16b9ed;
+}
+
+/* SECTION */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 85px 8%;
+  text-align: center;
+}
+
+h2 {
+  font-size: 34px;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  color: #91a4bb;
+  margin-bottom: 40px;
+}
+
+/* SERVICES */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 22px;
+}
+
+.service {
+  padding: 35px 24px;
+  border-radius: 13px;
+  background: linear-gradient(145deg,#142337,#0c1624);
+  border: 1px solid #25425b;
+  transition: .35s;
+}
+
+.service:hover {
+  transform: translateY(-8px);
+  border-color: #43d9ff;
+  box-shadow: 0 0 25px rgba(67,217,255,.13);
+}
+
+.service .symbol {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.service h3 {
+  color: #43d9ff;
+  margin-bottom: 12px;
+}
+
+.service p {
+  color: #9fb0c4;
+  font-size: 14px;
+}
+
+/* ABOUT */
+.about {
+  background: #0c1523;
+}
+
+.about-content {
+  max-width: 750px;
+  margin: auto;
+  color: #a9b9cc;
+}
+
+/* CONTACT */
+.contact {
+  background:
+    radial-gradient(ellipse at center,#102c45 0%,#080d18 75%);
+}
+
+.contact-list {
+  max-width: 650px;
+  margin: 35px auto 0;
+  display: grid;
+  gap: 17px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
+  background: #101c2b;
+  border: 1px solid #203b55;
+  border-radius: 12px;
+  text-align: left;
+  text-decoration: none;
+  color: white;
+  transition: .3s;
+}
+
+.contact-item:hover {
+  border-color: #43d9ff;
+  transform: translateX(5px);
+  background: #14283c;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #173b55;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+}
+
+.contact-info strong {
+  display: block;
+  color: #43d9ff;
+  font-size: 15px;
+}
+
+.contact-info small {
+  color: #a9b9cc;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+/* FOOTER */
+footer {
+  position: relative;
+  z-index: 1;
+  padding: 35px 8%;
+  text-align: center;
+  background: #060a12;
+  border-top: 1px solid #20354c;
+  color: #788da5;
+  font-size: 13px;
+}
+
+.footer-logo {
+  color: #43d9ff;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+footer a {
+  color: #43d9ff;
+  text-decoration: none;
+}
+
+@media(max-width:650px) {
+  header {
+    flex-direction: column;
+    gap: 17px;
+    padding: 20px 5%;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 14px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 500px;
+    padding: 75px 6%;
+  }
+
+  section {
+    padding: 65px 6%;
+  }
+
+  h2 {
+    font-size: 27px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
 }
 </style>
 </head>
+
 <body>
 
+<canvas id="snow" aria-hidden="true"></canvas>
+
 <header>
- <div class="logo">JUNPHAM.</div>
- <nav>
-  <a href="#home">Trang chủ</a>
-  <a href="#services">Dịch vụ</a>
-  <a href="#location">Chia sẻ vị trí</a>
-  <a href="#contact">Liên hệ</a>
- </nav>
+  <div class="logo">JUNPHAM.</div>
+
+  <nav>
+    <a href="#home">Trang chủ</a>
+    <a href="#services">Dịch vụ</a>
+    <a href="#about">Giới thiệu</a>
+    <a href="#contact">Liên hệ</a>
+  </nav>
 </header>
 
 <main>
+
+<!-- TRANG CHỦ -->
 <section class="hero" id="home">
- <div class="tag">DIGITAL ADVERTISING AGENCY</div>
- <h1>MAKE YOUR BRAND<br><span>STAND OUT.</span></h1>
- <p>Giải pháp quảng cáo kỹ thuật số chuyên nghiệp.
- Tăng nhận diện thương hiệu và phát triển kinh doanh trên nền tảng số.</p>
- <a href="#services" class="btn">KHÁM PHÁ DỊCH VỤ</a>
-</section>
 
-<section id="services">
- <h2>DỊCH VỤ CỦA CHÚNG TÔI</h2>
- <p class="sub">Phát triển thương hiệu trên các nền tảng kỹ thuật số.</p>
- <div class="services">
-  <div class="service">
-   <h3>Facebook Ads</h3>
-   <p>Quảng cáo và tiếp cận khách hàng tiềm năng.</p>
-  </div>
-  <div class="service">
-   <h3>TikTok Ads</h3>
-   <p>Phát triển nội dung và tăng khả năng tiếp cận.</p>
-  </div>
-  <div class="service">
-   <h3>Google Ads</h3>
-   <p>Tiếp cận khách hàng qua công cụ tìm kiếm.</p>
-  </div>
-  <div class="service">
-   <h3>Zalo Ads</h3>
-   <p>Quảng bá sản phẩm và dịch vụ trên Zalo.</p>
-  </div>
- </div>
-</section>
+  <div class="tag">DIGITAL ADVERTISING AGENCY</div>
 
-<section id="location">
- <h2>CHIA SẺ VỊ TRÍ</h2>
- <p class="sub">Tùy chọn chia sẻ vị trí để hỗ trợ tư vấn dịch vụ theo khu vực.</p>
+  <h1>
+    MAKE YOUR BRAND<br>
+    <span>STAND OUT.</span>
+  </h1>
 
- <div class="location">
-  <h3>📍 Chia sẻ vị trí GPS</h3>
-  <p style="margin-top:12px">
-   Nếu bạn đồng ý, trình duyệt sẽ yêu cầu quyền truy cập vị trí.
-   Vị trí chỉ được gửi đến máy chủ khi bạn chủ động đồng ý.
+  <p>
+    Giải pháp quảng cáo kỹ thuật số chuyên nghiệp.
+    Xây dựng thương hiệu, tiếp cận khách hàng
+    và phát triển kinh doanh trên nền tảng số.
   </p>
 
-  <label class="consent">
-   <input type="checkbox" id="consent">
-   <span>Tôi đồng ý chia sẻ vị trí hiện tại cho JUNPHAM để được hỗ trợ tư vấn theo khu vực. Tôi hiểu rằng có thể từ chối hoặc thu hồi quyền bất cứ lúc nào.</span>
-  </label>
+  <a href="#services" class="btn">
+    KHÁM PHÁ DỊCH VỤ
+  </a>
 
-  <button class="btn" id="shareBtn" disabled>
-   ĐỒNG Ý VÀ CHIA SẺ VỊ TRÍ
-  </button>
+</section>
 
-  <div class="status" id="status" role="status" aria-live="polite">
-   Bạn chưa chia sẻ vị trí.
+<!-- DỊCH VỤ -->
+<section id="services">
+
+  <h2>OUR SERVICES</h2>
+
+  <p class="subtitle">
+    Giải pháp quảng cáo dành cho thương hiệu của bạn.
+  </p>
+
+  <div class="services">
+
+    <div class="service">
+      <div class="symbol">ⓕ</div>
+      <h3>Facebook Ads</h3>
+      <p>Quảng cáo Facebook, tiếp cận khách hàng và phát triển thương hiệu.</p>
+    </div>
+
+    <div class="service">
+      <div class="symbol">♪</div>
+      <h3>TikTok Ads</h3>
+      <p>Quảng bá video, tăng độ phủ và tiếp cận khách hàng tiềm năng.</p>
+    </div>
+
+    <div class="service">
+      <div class="symbol">G</div>
+      <h3>Google Ads</h3>
+      <p>Đưa sản phẩm và dịch vụ tiếp cận khách hàng qua Google.</p>
+    </div>
+
+    <div class="service">
+      <div class="symbol">Z</div>
+      <h3>Zalo Ads</h3>
+      <p>Quảng cáo và kết nối khách hàng trên nền tảng Zalo.</p>
+    </div>
+
   </div>
- </div>
 </section>
 
-<section id="contact">
- <h2>LIÊN HỆ JUNPHAM</h2>
- <p class="sub">Cùng phát triển thương hiệu của bạn.</p>
- <p>Email: junjunn2866@gmail.com</p>
+<!-- GIỚI THIỆU -->
+<section class="about" id="about">
+
+  <h2>ABOUT JUNPHAM</h2>
+
+  <p class="subtitle">
+    Creativity · Technology · Performance
+  </p>
+
+  <div class="about-content">
+    JUNPHAM là thương hiệu hoạt động trong lĩnh vực
+    Digital Advertising, tập trung vào các giải pháp
+    quảng cáo trực tuyến và phát triển thương hiệu trên
+    những nền tảng kỹ thuật số.
+    <br><br>
+    Chúng tôi hướng tới sự sáng tạo, hiệu quả và
+    trải nghiệm chuyên nghiệp.
+  </div>
+
 </section>
+
+<!-- LIÊN HỆ -->
+<section class="contact" id="contact">
+
+  <h2>CONTACT US</h2>
+
+  <p class="subtitle">
+    Hãy kết nối với JUNPHAM.
+  </p>
+
+  <div class="contact-list">
+
+    <a class="contact-item"
+       href="mailto:junjunn2866@gmail.com">
+
+      <div class="contact-icon">✉️</div>
+
+      <div class="contact-info">
+        <strong>GMAIL</strong>
+        <small>junjunn2866@gmail.com</small>
+      </div>
+
+    </a>
+
+    <a class="contact-item"
+       href="https://www.facebook.com/share/1K2LLWw6bX/?mibextid=wwXIfr"
+       target="_blank" rel="noopener noreferrer">
+
+      <div class="contact-icon">ⓕ</div>
+
+      <div class="contact-info">
+        <strong>FACEBOOK</strong>
+        <small>Connect with JUNPHAM on Facebook</small>
+      </div>
+
+    </a>
+
+    <a class="contact-item"
+       href="https://t.me/ocdads88"
+       target="_blank" rel="noopener noreferrer">
+
+      <div class="contact-icon">✈️</div>
+
+      <div class="contact-info">
+        <strong>TELEGRAM</strong>
+        <small>@ocdads88</small>
+      </div>
+
+    </a>
+
+  </div>
+
+</section>
+
 </main>
 
 <footer>
- © 2026 JUNPHAM DIGITAL ADVERTISING AGENCY
- <br><br>
- <a href="admin.html">Quản trị hệ thống</a>
+
+  <div class="footer-logo">JUNPHAM.</div>
+
+  <p>DIGITAL ADVERTISING AGENCY</p>
+
+  <p style="margin-top:12px">
+    © 2026 JUNPHAM. All Rights Reserved.
+  </p>
+
+  <p style="margin-top:8px">
+    Creativity is intelligence having fun.
+  </p>
+
 </footer>
 
 <script>
-const checkbox = document.getElementById("consent");
-const button = document.getElementById("shareBtn");
-const statusBox = document.getElementById("status");
+/* HIỆU ỨNG TUYẾT RƠI */
 
-checkbox.addEventListener("change", () => {
- button.disabled = !checkbox.checked;
-});
+(() => {
+  const canvas = document.getElementById("snow");
+  const ctx = canvas.getContext("2d");
 
-button.addEventListener("click", () => {
- if (!checkbox.checked) return;
+  if (!ctx) return;
 
- if (!navigator.geolocation) {
-  statusBox.textContent = "Trình duyệt không hỗ trợ GPS.";
-  return;
- }
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
- button.disabled = true;
- statusBox.textContent = "Đang yêu cầu quyền vị trí...";
+  let width, height;
+  let flakes = [];
 
- navigator.geolocation.getCurrentPosition(
-  async (position) => {
-   const data = {
-    latitude: position.coords.latitude,
-    longitude: position.coords.longitude,
-    accuracy: position.coords.accuracy,
-    consent: true,
-    consentAt: new Date().toISOString()
-   };
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-   statusBox.textContent =
-    "Bạn đã đồng ý chia sẻ vị trí. Đang chờ kết nối máy chủ.";
+    width = window.innerWidth;
+    height = window.innerHeight;
 
-   try {
-    // Chỉ gửi dữ liệu sau khi người dùng đã chấp thuận.
-    // Backend sẽ được cấu hình ở bước tiếp theo.
-    const response = await fetch("/api/location", {
-     method: "POST",
-     headers: {"Content-Type": "application/json"},
-     body: JSON.stringify(data)
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const count = Math.min(
+      130,
+      Math.max(40, Math.floor(width / 10))
+    );
+
+    flakes = Array.from({length: count}, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 2.5 + 0.7,
+      speed: Math.random() * 1.1 + 0.35,
+      drift: Math.random() * 0.6 - 0.3,
+      opacity: Math.random() * 0.6 + 0.25
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    flakes.forEach(f => {
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+
+      ctx.fillStyle = `rgba(220,245,255,${f.opacity})`;
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = "#aeeaff";
+      ctx.fill();
+
+      f.y += f.speed;
+      f.x += f.drift + Math.sin(f.y / 40) * 0.2;
+
+      if (f.y > height + 5) {
+        f.y = -5;
+        f.x = Math.random() * width;
+      }
+
+      if (f.x > width + 5) f.x = -5;
+      if (f.x < -5) f.x = width + 5;
     });
 
-    if (!response.ok) throw new Error("Server error");
-
-    statusBox.textContent = "Chia sẻ vị trí thành công.";
-   } catch (error) {
-    statusBox.textContent =
-     "Đã lấy được vị trí theo sự đồng ý của bạn, nhưng máy chủ chưa được kết nối. Dữ liệu chưa được lưu.";
-   }
-   button.disabled = false;
-  },
-  (error) => {
-   const messages = {
-    1: "Bạn đã từ chối quyền truy cập vị trí.",
-    2: "Không xác định được vị trí.",
-    3: "Yêu cầu GPS đã hết thời gian."
-   };
-   statusBox.textContent = messages[error.code] || "Không lấy được vị trí.";
-   button.disabled = false;
-  },
-  {
-   enableHighAccuracy: true,
-   timeout: 15000,
-   maximumAge: 0
+    ctx.shadowBlur = 0;
   }
- );
-});
+
+  resize();
+  window.addEventListener("resize", resize);
+
+  if (reduceMotion) {
+    draw();
+  } else {
+    function animate() {
+      draw();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
+})();
 </script>
+
 </body>
 </html>
