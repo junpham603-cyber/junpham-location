@@ -3,569 +3,681 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080d18">
-<meta name="description" content="JUNPHAM - Digital Advertising Agency. Giải pháp quảng cáo Facebook, TikTok, Google và Zalo.">
 <title>JUNPHAM | Digital Advertising Agency</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+ --bg:#080d18;
+ --panel:#101c2b;
+ --cyan:#43d9ff;
+ --muted:#a9b9cc;
+ --border:#243c55;
 }
-
-html {
-  scroll-behavior: smooth;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+ background:var(--bg);color:white;
+ font-family:Arial,sans-serif;line-height:1.65;
+ overflow-x:hidden;
 }
-
-body {
-  font-family: Arial, sans-serif;
-  background: #080d18;
-  color: #fff;
-  line-height: 1.6;
-  overflow-x: hidden;
+#snow{
+ position:fixed;inset:0;width:100%;height:100%;
+ pointer-events:none;z-index:50;
 }
-
-/* Tuyết rơi */
-#snow {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 100;
+header{
+ position:sticky;top:0;z-index:60;
+ display:flex;justify-content:space-between;
+ align-items:center;padding:18px 7%;
+ background:rgba(8,13,24,.94);
+ border-bottom:1px solid var(--border);
+ backdrop-filter:blur(15px);
 }
-
-/* HEADER */
-header {
-  position: relative;
-  z-index: 101;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 22px 8%;
-  background: rgba(8,13,24,.92);
-  border-bottom: 1px solid #20364c;
-  backdrop-filter: blur(12px);
+.logo{
+ color:var(--cyan);font-size:27px;
+ font-weight:900;letter-spacing:4px;
+ text-shadow:0 0 15px #168dbb;
 }
-
-.logo {
-  font-size: 29px;
-  font-weight: 900;
-  color: #43d9ff;
-  letter-spacing: 4px;
-  text-shadow: 0 0 18px #168dbb;
+nav{display:flex;gap:23px;flex-wrap:wrap}
+nav a{color:#d2deec;text-decoration:none;font-size:13px}
+nav a:hover{color:var(--cyan)}
+button,a{font-family:inherit}
+.hero{
+ min-height:570px;padding:100px 7%;
+ display:flex;flex-direction:column;
+ justify-content:center;align-items:center;
+ text-align:center;
+ background:radial-gradient(ellipse at center,#153954,#080d18 70%);
 }
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
+.tag{color:var(--cyan);letter-spacing:5px;font-size:12px}
+h1{font-size:clamp(42px,8vw,78px);line-height:1.12;margin:25px 0}
+h1 span{color:var(--cyan);text-shadow:0 0 25px #168dbb}
+.hero p,.muted{color:var(--muted)}
+.btn{
+ display:inline-block;padding:13px 24px;
+ background:linear-gradient(90deg,#13b8eb,#61dcff);
+ color:#06111c;text-decoration:none;
+ font-weight:bold;border:0;border-radius:7px;
+ cursor:pointer;transition:.25s;
 }
-
-nav a {
-  color: #c4d3e3;
-  text-decoration: none;
-  font-size: 14px;
-  transition: .3s;
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 20px #168dbb}
+.btn-outline{
+ background:transparent;color:var(--cyan);
+ border:1px solid var(--cyan);
 }
-
-nav a:hover {
-  color: #43d9ff;
+section{padding:75px 7%;text-align:center}
+.section-title{font-size:32px;margin-bottom:12px}
+.section-sub{color:var(--muted);margin-bottom:35px}
+.services{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:20px;
 }
-
-/* HERO */
-.hero {
-  min-height: 600px;
-  padding: 100px 8%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background:
-    radial-gradient(ellipse at center, #123653 0%, #080d18 70%);
+.service{
+ background:linear-gradient(145deg,#142438,#0d1725);
+ border:1px solid var(--border);
+ padding:28px 22px;border-radius:13px;
+ cursor:pointer;text-align:left;transition:.3s;
+ color:white;
 }
-
-.tag {
-  color: #43d9ff;
-  letter-spacing: 5px;
-  font-size: 13px;
+.service:hover{
+ transform:translateY(-7px);
+ border-color:var(--cyan);
+ box-shadow:0 0 25px #123c55;
 }
+.service-icon{font-size:34px;margin-bottom:13px}
+.service h3{color:var(--cyan);font-size:20px}
+.service p{color:var(--muted);font-size:14px;margin:10px 0}
+.more{color:var(--cyan);font-size:13px;font-weight:bold}
 
-h1 {
-  font-size: clamp(42px, 8vw, 82px);
-  line-height: 1.12;
-  margin: 25px 0;
-  font-weight: 900;
+/* DETAILS */
+.details{
+ display:none;text-align:left;
+ background:#0b1522;border-top:1px solid var(--border);
 }
-
-h1 span {
-  color: #43d9ff;
-  text-shadow: 0 0 25px #168dbb;
+.details.active{display:block;animation:appear .35s ease}
+@keyframes appear{
+ from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:translateY(0)}
 }
-
-.hero p {
-  max-width: 650px;
-  color: #a9b9cc;
-  font-size: 16px;
+.detail-wrap{max-width:1100px;margin:auto}
+.detail-top{
+ display:flex;justify-content:space-between;
+ align-items:center;gap:15px;flex-wrap:wrap;
+ margin-bottom:25px;
 }
-
-.btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 14px 30px;
-  border: none;
-  border-radius: 7px;
-  background: linear-gradient(90deg,#12b9eb,#58ddff);
-  color: #06111c;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-  transition: .3s;
+.detail-top h2{color:var(--cyan);font-size:32px}
+.close{
+ border:1px solid var(--border);
+ background:#152337;color:white;
+ padding:9px 17px;border-radius:6px;
+ cursor:pointer;
 }
-
-.btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 25px #16b9ed;
+.detail-description{color:var(--muted);margin-bottom:30px}
+.detail-grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:16px;margin:25px 0;
 }
-
-/* SECTION */
-section {
-  position: relative;
-  z-index: 1;
-  padding: 85px 8%;
-  text-align: center;
+.info-card{
+ background:var(--panel);border:1px solid var(--border);
+ padding:21px;border-radius:10px;
 }
-
-h2 {
-  font-size: 34px;
-  margin-bottom: 15px;
+.info-card h3{color:var(--cyan);font-size:16px;margin-bottom:10px}
+.info-card p,.info-card li{font-size:14px;color:#b5c4d5}
+.info-card ul{padding-left:19px}
+.data-table{
+ width:100%;border-collapse:collapse;
+ margin:20px 0;background:var(--panel);
+ border-radius:10px;overflow:hidden;
 }
-
-.subtitle {
-  color: #91a4bb;
-  margin-bottom: 40px;
+.data-table th,.data-table td{
+ text-align:left;padding:13px;
+ border-bottom:1px solid var(--border);
+ font-size:13px;
 }
-
-/* SERVICES */
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 22px;
+.data-table th{color:var(--cyan);background:#14263a}
+.data-table td{color:#c3d0df}
+.note{
+ border-left:3px solid var(--cyan);
+ background:#112238;padding:16px;
+ color:#b8c9dc;font-size:13px;margin:22px 0;
 }
-
-.service {
-  padding: 35px 24px;
-  border-radius: 13px;
-  background: linear-gradient(145deg,#142337,#0c1624);
-  border: 1px solid #25425b;
-  transition: .35s;
+.steps{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+ gap:12px;margin:22px 0;
 }
-
-.service:hover {
-  transform: translateY(-8px);
-  border-color: #43d9ff;
-  box-shadow: 0 0 25px rgba(67,217,255,.13);
+.step{
+ background:#132337;padding:17px;border-radius:9px;
+ border:1px solid var(--border);
 }
+.step b{color:var(--cyan);display:block;margin-bottom:7px}
+.detail-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
 
-.service .symbol {
-  font-size: 35px;
-  margin-bottom: 15px;
+/* ABOUT & CONTACT */
+.about{background:#0d1725}
+.about-content{max-width:750px;margin:auto;color:var(--muted)}
+.contact-list{max-width:650px;margin:30px auto;display:grid;gap:14px}
+.contact-item{
+ display:flex;align-items:center;gap:17px;
+ text-align:left;padding:18px;
+ background:var(--panel);border:1px solid var(--border);
+ color:white;text-decoration:none;border-radius:10px;
+ transition:.25s;
 }
-
-.service h3 {
-  color: #43d9ff;
-  margin-bottom: 12px;
+.contact-item:hover{border-color:var(--cyan);transform:translateX(5px)}
+.contact-icon{font-size:25px;width:42px;text-align:center}
+.contact-item strong{display:block;color:var(--cyan)}
+.contact-item small{color:var(--muted);overflow-wrap:anywhere}
+footer{
+ text-align:center;padding:35px 7%;
+ background:#050911;border-top:1px solid var(--border);
+ color:#8294aa;font-size:13px;
 }
+footer .logo{margin-bottom:8px}
 
-.service p {
-  color: #9fb0c4;
-  font-size: 14px;
-}
-
-/* ABOUT */
-.about {
-  background: #0c1523;
-}
-
-.about-content {
-  max-width: 750px;
-  margin: auto;
-  color: #a9b9cc;
-}
-
-/* CONTACT */
-.contact {
-  background:
-    radial-gradient(ellipse at center,#102c45 0%,#080d18 75%);
-}
-
-.contact-list {
-  max-width: 650px;
-  margin: 35px auto 0;
-  display: grid;
-  gap: 17px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 20px;
-  background: #101c2b;
-  border: 1px solid #203b55;
-  border-radius: 12px;
-  text-align: left;
-  text-decoration: none;
-  color: white;
-  transition: .3s;
-}
-
-.contact-item:hover {
-  border-color: #43d9ff;
-  transform: translateX(5px);
-  background: #14283c;
-}
-
-.contact-icon {
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: #173b55;
-  display: grid;
-  place-items: center;
-  font-size: 24px;
-}
-
-.contact-info strong {
-  display: block;
-  color: #43d9ff;
-  font-size: 15px;
-}
-
-.contact-info small {
-  color: #a9b9cc;
-  font-size: 13px;
-  overflow-wrap: anywhere;
-}
-
-/* FOOTER */
-footer {
-  position: relative;
-  z-index: 1;
-  padding: 35px 8%;
-  text-align: center;
-  background: #060a12;
-  border-top: 1px solid #20354c;
-  color: #788da5;
-  font-size: 13px;
-}
-
-.footer-logo {
-  color: #43d9ff;
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: 4px;
-  margin-bottom: 10px;
-}
-
-footer a {
-  color: #43d9ff;
-  text-decoration: none;
-}
-
-@media(max-width:650px) {
-  header {
-    flex-direction: column;
-    gap: 17px;
-    padding: 20px 5%;
-  }
-
-  nav {
-    justify-content: center;
-    gap: 14px;
-  }
-
-  nav a {
-    font-size: 12px;
-  }
-
-  .hero {
-    min-height: 500px;
-    padding: 75px 6%;
-  }
-
-  section {
-    padding: 65px 6%;
-  }
-
-  h2 {
-    font-size: 27px;
-  }
-}
-
-@media(prefers-reduced-motion:reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { transition: none !important; }
+@media(max-width:650px){
+ header{flex-direction:column;gap:15px;padding:16px 5%}
+ nav{justify-content:center;gap:13px}
+ nav a{font-size:12px}
+ section{padding:55px 5%}
+ .hero{padding:75px 5%;min-height:480px}
+ .section-title{font-size:27px}
+ .data-table th,.data-table td{padding:9px 7px;font-size:12px}
 }
 </style>
 </head>
 
 <body>
-
-<canvas id="snow" aria-hidden="true"></canvas>
+<canvas id="snow"></canvas>
 
 <header>
-  <div class="logo">JUNPHAM.</div>
-
-  <nav>
-    <a href="#home">Trang chủ</a>
-    <a href="#services">Dịch vụ</a>
-    <a href="#about">Giới thiệu</a>
-    <a href="#contact">Liên hệ</a>
-  </nav>
+ <div class="logo">JUNPHAM.</div>
+ <nav>
+  <a href="#home">Trang chủ</a>
+  <a href="#services">Dịch vụ</a>
+  <a href="#about">Giới thiệu</a>
+  <a href="#contact">Liên hệ</a>
+ </nav>
 </header>
 
 <main>
-
-<!-- TRANG CHỦ -->
 <section class="hero" id="home">
+ <div class="tag">DIGITAL ADVERTISING AGENCY</div>
+ <h1>MAKE YOUR BRAND<br><span>STAND OUT.</span></h1>
+ <p>Chiến lược quảng cáo kỹ thuật số. Phân tích dữ liệu.
+ Tối ưu hiệu suất và phát triển thương hiệu.</p>
+ <a class="btn" href="#services">EXPLORE SERVICES</a>
+</section>
 
-  <div class="tag">DIGITAL ADVERTISING AGENCY</div>
+<section id="services">
+ <h2 class="section-title">OUR SERVICES</h2>
+ <p class="section-sub">Chọn một nền tảng để khám phá giải pháp quảng cáo chuyên sâu.</p>
 
-  <h1>
-    MAKE YOUR BRAND<br>
-    <span>STAND OUT.</span>
-  </h1>
+ <div class="services">
+  <button class="service" onclick="showService('facebook')">
+   <div class="service-icon">ⓕ</div>
+   <h3>Facebook Ads</h3>
+   <p>Meta Ads, quảng cáo tin nhắn, chuyển đổi, tiếp cận và remarketing.</p>
+   <span class="more">XEM PHÂN TÍCH CHI TIẾT →</span>
+  </button>
 
-  <p>
-    Giải pháp quảng cáo kỹ thuật số chuyên nghiệp.
-    Xây dựng thương hiệu, tiếp cận khách hàng
-    và phát triển kinh doanh trên nền tảng số.
+  <button class="service" onclick="showService('tiktok')">
+   <div class="service-icon">♪</div>
+   <h3>TikTok Ads</h3>
+   <p>Video Ads, Spark Ads, chuyển đổi website và khai thác khách hàng.</p>
+   <span class="more">XEM PHÂN TÍCH CHI TIẾT →</span>
+  </button>
+
+  <button class="service" onclick="showService('google')">
+   <div class="service-icon">G</div>
+   <h3>Google Ads</h3>
+   <p>Search Ads, Display, YouTube, Shopping và Performance Max.</p>
+   <span class="more">XEM PHÂN TÍCH CHI TIẾT →</span>
+  </button>
+
+  <button class="service" onclick="showService('zalo')">
+   <div class="service-icon">Z</div>
+   <h3>Zalo Ads</h3>
+   <p>Quảng cáo Zalo, tiếp cận khách hàng và phát triển tệp tiềm năng.</p>
+   <span class="more">XEM PHÂN TÍCH CHI TIẾT →</span>
+  </button>
+ </div>
+</section>
+
+<!-- FACEBOOK -->
+<section class="details" id="detail-facebook">
+ <div class="detail-wrap">
+  <div class="detail-top">
+   <h2>ⓕ FACEBOOK / META ADS</h2>
+   <button class="close" onclick="closeDetails()">✕ Đóng</button>
+  </div>
+  <p class="detail-description">
+   Xây dựng và tối ưu chiến dịch quảng cáo trên hệ sinh thái Meta,
+   hướng đến nhận diện, tương tác, tin nhắn, khách hàng tiềm năng và chuyển đổi.
   </p>
 
-  <a href="#services" class="btn">
-    KHÁM PHÁ DỊCH VỤ
+  <div class="detail-grid">
+   <div class="info-card">
+    <h3>MỤC TIÊU CHIẾN DỊCH</h3>
+    <ul>
+     <li>Awareness – nhận diện thương hiệu</li>
+     <li>Traffic – lượt truy cập</li>
+     <li>Engagement – tương tác</li>
+     <li>Leads – khách hàng tiềm năng</li>
+     <li>Sales – doanh số và chuyển đổi</li>
+    </ul>
+   </div>
+   <div class="info-card">
+    <h3>HÌNH THỨC QUẢNG CÁO</h3>
+    <ul>
+     <li>Ảnh và video quảng cáo</li>
+     <li>Click to Messenger</li>
+     <li>Lead Ads – biểu mẫu</li>
+     <li>Website Conversion</li>
+     <li>Retargeting – tiếp thị lại</li>
+    </ul>
+   </div>
+   <div class="info-card">
+    <h3>PHÂN TÍCH KHÁCH HÀNG</h3>
+    <ul>
+     <li>Độ tuổi và khu vực</li>
+     <li>Nhóm sở thích</li>
+     <li>Hành vi và tương tác</li>
+     <li>Custom Audience</li>
+     <li>Lookalike Audience</li>
+    </ul>
+   </div>
+  </div>
+
+  <h3 style="color:var(--cyan)">HỆ THỐNG DATA THEO DÕI</h3>
+  <table class="data-table">
+   <tr><th>Chỉ số</th><th>Ý nghĩa</th><th>Công thức</th></tr>
+   <tr><td>CPM</td><td>Chi phí 1.000 lượt hiển thị</td><td>Chi phí / Impressions × 1.000</td></tr>
+   <tr><td>CPC</td><td>Chi phí mỗi lượt nhấp</td><td>Chi phí / Clicks</td></tr>
+   <tr><td>CTR</td><td>Tỷ lệ nhấp</td><td>Clicks / Impressions × 100%</td></tr>
+   <tr><td>CPA</td><td>Chi phí mỗi hành động</td><td>Chi phí / Conversions</td></tr>
+   <tr><td>ROAS</td><td>Doanh thu trên chi phí quảng cáo</td><td>Doanh thu / Chi phí Ads</td></tr>
+   <tr><td>Frequency</td><td>Tần suất hiển thị trung bình</td><td>Impressions / Reach</td></tr>
+  </table>
+
+  <div class="note">
+   DATA thực tế cần lấy từ Meta Ads Manager, Pixel và Conversions API
+   khi được cài đặt phù hợp. Bảng trên là hệ thống chỉ số theo dõi,
+   không phải số liệu thành tích của JUNPHAM.
+  </div>
+
+  <h3 style="color:var(--cyan)">QUY TRÌNH TRIỂN KHAI</h3>
+  <div class="steps">
+   <div class="step"><b>01. Research</b><span class="muted">Nghiên cứu sản phẩm và thị trường.</span></div>
+   <div class="step"><b>02. Strategy</b><span class="muted">Lựa chọn mục tiêu và đối tượng.</span></div>
+   <div class="step"><b>03. Campaign</b><span class="muted">Thiết lập nhóm và mẫu quảng cáo.</span></div>
+   <div class="step"><b>04. Optimization</b><span class="muted">Đánh giá và tối ưu dữ liệu.</span></div>
+   <div class="step"><b>05. Reporting</b><span class="muted">Báo cáo và đánh giá kết quả.</span></div>
+  </div>
+
+  <div class="detail-actions">
+   <a class="btn" href="mailto:junjunn2866@gmail.com?subject=Tu%20van%20Facebook%20Ads">YÊU CẦU TƯ VẤN</a>
+   <a class="btn btn-outline" href="https://www.facebook.com/share/1K2LLWw6bX/?mibextid=wwXIfr" target="_blank" rel="noopener">FACEBOOK</a>
+  </div>
+ </div>
+</section>
+
+<!-- TIKTOK -->
+<section class="details" id="detail-tiktok">
+ <div class="detail-wrap">
+  <div class="detail-top">
+   <h2>♪ TIKTOK ADS</h2>
+   <button class="close" onclick="closeDetails()">✕ Đóng</button>
+  </div>
+  <p class="detail-description">
+   Khai thác quảng cáo video ngắn, sáng tạo nội dung và tối ưu hành trình
+   từ lượt xem đến tương tác, khách hàng tiềm năng và chuyển đổi.
+  </p>
+
+  <div class="detail-grid">
+   <div class="info-card">
+    <h3>MỤC TIÊU</h3>
+    <ul>
+     <li>Video Views</li><li>Reach</li>
+     <li>Traffic</li><li>Lead Generation</li>
+     <li>Website Conversions</li>
+    </ul>
+   </div>
+   <div class="info-card">
+    <h3>ĐỊNH DẠNG QUẢNG CÁO</h3>
+    <ul>
+     <li>In-Feed Ads</li><li>Spark Ads</li>
+     <li>Video Shopping Ads</li>
+     <li>Lead Generation Ads</li>
+     <li>Creative Testing</li>
+    </ul>
+   </div>
+   <div class="info-card">
+    <h3>PHÂN TÍCH NỘI DUNG</h3>
+    <ul>
+     <li>Hook 3 giây đầu</li>
+     <li>Watch Time</li>
+     <li>Video Completion Rate</li>
+     <li>Engagement Rate</li>
+     <li>Creative Fatigue</li>
+    </ul>
+   </div>
+  </div>
+
+  <h3 style="color:var(--cyan)">HỆ THỐNG DATA THEO DÕI</h3>
+  <table class="data-table">
+   <tr><th>Chỉ số</th><th>Ý nghĩa</th><th>Công thức</th></tr>
+   <tr><td>CPM</td><td>Chi phí 1.000 impressions</td><td>Cost / Impressions × 1.000</td></tr>
+   <tr><td>CPV</td><td>Chi phí mỗi lượt xem</td><td>Cost / Qualified Views</td></tr>
+   <tr><td>CTR</td><td>Tỷ lệ nhấp</td><td>Clicks / Impressions × 100%</td></tr>
+   <tr><td>CPC</td><td>Chi phí mỗi lượt nhấp</td><td>Cost / Clicks</td></tr>
+   <tr><td>CVR</td><td>Tỷ lệ chuyển đổi</td><td>Conversions / Clicks × 100%</td></tr>
+   <tr><td>CPA</td><td>Chi phí mỗi chuyển đổi</td><td>Cost / Conversions</td></tr>
+   <tr><td>ROAS</td><td>Doanh thu / chi phí Ads</td><td>Revenue / Ad Spend</td></tr>
+  </table>
+
+  <div class="note">
+   TikTok Ads Manager và TikTok Pixel/Events API là các nguồn dữ liệu
+   để đánh giá lượt xem, tương tác và chuyển đổi. Định nghĩa lượt xem
+   cần căn cứ loại báo cáo đang sử dụng.
+  </div>
+
+  <h3 style="color:var(--cyan)">QUY TRÌNH TRIỂN KHAI</h3>
+  <div class="steps">
+   <div class="step"><b>01. Research</b><span class="muted">Nghiên cứu thị trường và khách hàng.</span></div>
+   <div class="step"><b>02. Creative</b><span class="muted">Xây dựng kịch bản và video.</span></div>
+   <div class="step"><b>03. Testing</b><span class="muted">Thử nghiệm nhiều nội dung.</span></div>
+   <div class="step"><b>04. Scaling</b><span class="muted">Tối ưu và mở rộng chiến dịch.</span></div>
+   <div class="step"><b>05. Reporting</b><span class="muted">Đánh giá dữ liệu và kết quả.</span></div>
+  </div>
+
+  <div class="detail-actions">
+   <a class="btn" href="mailto:junjunn2866@gmail.com?subject=Tu%20van%20TikTok%20Ads">YÊU CẦU TƯ VẤN</a>
+   <a class="btn btn-outline" href="https://t.me/ocdads88" target="_blank" rel="noopener">TELEGRAM</a>
+  </div>
+ </div>
+</section>
+
+<!-- GOOGLE -->
+<section class="details" id="detail-google">
+ <div class="detail-wrap">
+  <div class="detail-top">
+   <h2>G GOOGLE ADS</h2>
+   <button class="close" onclick="closeDetails()">✕ Đóng</button>
+  </div>
+  <p class="detail-description">
+   Tiếp cận người dùng theo nhu cầu tìm kiếm, hành vi và ý định mua hàng
+   thông qua hệ thống quảng cáo Google.
+  </p>
+
+  <div class="detail-grid">
+   <div class="info-card">
+    <h3>LOẠI CHIẾN DỊCH</h3>
+    <ul>
+     <li>Search Ads</li><li>Display Ads</li>
+     <li>YouTube Ads</li><li>Shopping Ads</li>
+     <li>Performance Max</li>
+    </ul>
+   </div>
+   <div class="info-card">
+    <h3>CHIẾN LƯỢC TỪ KHÓA</h3>
+    <ul>
+     <li>Keyword Research</li>
+     <li>Search Intent</li>
+     <li>Match Types</li>
+     <li>Negative Keywords</li>
+     <li>Search Terms Analysis</li>
+    </ul>
+   </div>
+   <div class="info-card">
+    <h3>TỐI ƯU CHUYỂN ĐỔI</h3>
+    <ul>
+     <li>Landing Page</li>
+     <li>Conversion Tracking</li>
+     <li>Enhanced Conversions</li>
+     <li>Remarketing</li>
+     <li>Quality Score</li>
+    </ul>
+   </div>
+  </div>
+
+  <h3 style="color:var(--cyan)">HỆ THỐNG DATA THEO DÕI</h3>
+  <table class="data-table">
+   <tr><th>Chỉ số</th><th>Ý nghĩa</th><th>Công thức</th></tr>
+   <tr><td>Impressions</td><td>Số lần quảng cáo hiển thị</td><td>Dữ liệu nền tảng</td></tr>
+   <tr><td>CTR</td><td>Tỷ lệ nhấp</td><td>Clicks / Impressions × 100%</td></tr>
+   <tr><td>Avg. CPC</td><td>Chi phí trung bình mỗi nhấp</td><td>Cost / Clicks</td></tr>
+   <tr><td>Conversion Rate</td><td>Tỷ lệ chuyển đổi</td><td>Conversions / Interactions × 100%</td></tr>
+   <tr><td>CPA</td><td>Chi phí mỗi chuyển đổi</td><td>Cost / Conversions</td></tr>
+   <tr><td>ROAS</td><td>Hiệu quả doanh thu quảng cáo</td><td>Conversion Value / Cost</td></tr>
+   <tr><td>Quality Score</td><td>Điểm chất lượng từ khóa</td><td>Chỉ số đánh giá của Google</td></tr>
+  </table>
+
+  <div class="note">
+   Theo dõi qua Google Ads, Google Analytics 4 và hệ thống đo lường
+   chuyển đổi được cấu hình. Quality Score là chỉ số chẩn đoán,
+   không phải chỉ số ROI.
+  </div>
+
+  <h3 style="color:var(--cyan)">QUY TRÌNH TRIỂN KHAI</h3>
+  <div class="steps">
+   <div class="step"><b>01. Research</b><span class="muted">Nghiên cứu từ khóa và đối thủ.</span></div>
+   <div class="step"><b>02. Structure</b><span class="muted">Thiết kế cấu trúc chiến dịch.</span></div>
+   <div class="step"><b>03. Launch</b><span class="muted">Thiết lập quảng cáo.</span></div>
+   <div class="step"><b>04. Optimize</b><span class="muted">Tối ưu từ khóa và chuyển đổi.</span></div>
+   <div class="step"><b>05. Analyze</b><span class="muted">Phân tích và báo cáo.</span></div>
+  </div>
+
+  <div class="detail-actions">
+   <a class="btn" href="mailto:junjunn2866@gmail.com?subject=Tu%20van%20Google%20Ads">YÊU CẦU TƯ VẤN</a>
+   <a class="btn btn-outline" href="https://t.me/ocdads88" target="_blank" rel="noopener">TELEGRAM</a>
+  </div>
+ </div>
+</section>
+
+<!-- ZALO -->
+<section class="details" id="detail-zalo">
+ <div class="detail-wrap">
+  <div class="detail-top">
+   <h2>Z ZALO ADS</h2>
+   <button class="close" onclick="closeDetails()">✕ Đóng</button>
+  </div>
+  <p class="detail-description">
+   Khai thác hệ sinh thái Zalo để tiếp cận khách hàng,
+   quảng bá thương hiệu và phát triển hoạt động kinh doanh.
+  </p>
+
+  <div class="detail-grid">
+   <div class="info-card">
+    <h3>MỤC TIÊU</h3>
+    <ul>
+     <li>Nhận diện thương hiệu</li>
+     <li>Tiếp cận khách hàng</li>
+     <li>Thu hút lượt quan tâm</li>
+     <li>Thu thập khách hàng tiềm năng</li>
+     <li>Hỗ trợ bán hàng</li>
+    </ul>
+   </div>
+   <div class="info-card">
+    <h3>HÌNH THỨC QUẢNG CÁO</h3>
+    <ul>
+     <li>Quảng cáo Website</li>
+     <li>Quảng cáo Form</li>
+     <li>Quảng cáo Zalo Official Account</li>
+     <li>Quảng cáo sản phẩm</li>
+     <li>Quảng cáo video và nội dung</li>
+    </ul>
+   </div>
+   <div class="info-card">
+    <h3>PHÂN TÍCH KHÁCH HÀNG</h3>
+    <ul>
+     <li>Khu vực địa lý</li>
+     <li>Độ tuổi</li>
+     <li>Nhóm đối tượng phù hợp</li>
+     <li>Hành vi tương tác</li>
+     <li>Chất lượng khách hàng tiềm năng</li>
+    </ul>
+   </div>
+  </div>
+
+  <h3 style="color:var(--cyan)">HỆ THỐNG DATA THEO DÕI</h3>
+  <table class="data-table">
+   <tr><th>Chỉ số</th><th>Ý nghĩa</th><th>Công thức</th></tr>
+   <tr><td>Impressions</td><td>Lượt hiển thị</td><td>Dữ liệu nền tảng</td></tr>
+   <tr><td>CTR</td><td>Tỷ lệ nhấp</td><td>Clicks / Impressions × 100%</td></tr>
+   <tr><td>CPC</td><td>Chi phí mỗi nhấp</td><td>Cost / Clicks</td></tr>
+   <tr><td>CPM</td><td>Chi phí 1.000 hiển thị</td><td>Cost / Impressions × 1.000</td></tr>
+   <tr><td>CPL</td><td>Chi phí mỗi khách hàng tiềm năng</td><td>Cost / Leads</td></tr>
+   <tr><td>CVR</td><td>Tỷ lệ chuyển đổi</td><td>Conversions / Clicks × 100%</td></tr>
+  </table>
+
+  <div class="note">
+   Chỉ số và loại quảng cáo khả dụng phụ thuộc sản phẩm Zalo Ads,
+   mục tiêu chiến dịch và báo cáo tài khoản. Cần đối chiếu dữ liệu
+   thực tế trong Zalo Ads Manager.
+  </div>
+
+  <h3 style="color:var(--cyan)">QUY TRÌNH TRIỂN KHAI</h3>
+  <div class="steps">
+   <div class="step"><b>01. Research</b><span class="muted">Phân tích khu vực và đối tượng.</span></div>
+   <div class="step"><b>02. Setup</b><span class="muted">Thiết lập tài khoản và quảng cáo.</span></div>
+   <div class="step"><b>03. Testing</b><span class="muted">Kiểm tra nội dung và tệp khách.</span></div>
+   <div class="step"><b>04. Optimize</b><span class="muted">Tối ưu chi phí và chất lượng lead.</span></div>
+   <div class="step"><b>05. Report</b><span class="muted">Đánh giá hiệu quả chiến dịch.</span></div>
+  </div>
+
+  <div class="detail-actions">
+   <a class="btn" href="mailto:junjunn2866@gmail.com?subject=Tu%20van%20Zalo%20Ads">YÊU CẦU TƯ VẤN</a>
+   <a class="btn btn-outline" href="https://t.me/ocdads88" target="_blank" rel="noopener">TELEGRAM</a>
+  </div>
+ </div>
+</section>
+
+<section class="about" id="about">
+ <h2 class="section-title">ABOUT JUNPHAM</h2>
+ <p class="section-sub">CREATIVITY · DATA · PERFORMANCE</p>
+ <div class="about-content">
+  JUNPHAM hoạt động trong lĩnh vực Digital Advertising,
+  tập trung vào giải pháp quảng cáo đa nền tảng,
+  phân tích dữ liệu và tối ưu hiệu suất chiến dịch.
+  <br><br>
+  Chúng tôi hướng tới chiến lược rõ ràng,
+  đo lường minh bạch và phát triển thương hiệu bền vững.
+ </div>
+</section>
+
+<section id="contact">
+ <h2 class="section-title">CONTACT US</h2>
+ <p class="section-sub">Let's grow your business together.</p>
+
+ <div class="contact-list">
+  <a class="contact-item" href="mailto:junjunn2866@gmail.com">
+   <span class="contact-icon">✉️</span>
+   <span><strong>GMAIL</strong><small>junjunn2866@gmail.com</small></span>
   </a>
 
+  <a class="contact-item"
+   href="https://www.facebook.com/share/1K2LLWw6bX/?mibextid=wwXIfr"
+   target="_blank" rel="noopener noreferrer">
+   <span class="contact-icon">ⓕ</span>
+   <span><strong>FACEBOOK</strong><small>Connect with JUNPHAM</small></span>
+  </a>
+
+  <a class="contact-item"
+   href="https://t.me/ocdads88"
+   target="_blank" rel="noopener noreferrer">
+   <span class="contact-icon">✈️</span>
+   <span><strong>TELEGRAM</strong><small>@ocdads88</small></span>
+  </a>
+ </div>
 </section>
-
-<!-- DỊCH VỤ -->
-<section id="services">
-
-  <h2>OUR SERVICES</h2>
-
-  <p class="subtitle">
-    Giải pháp quảng cáo dành cho thương hiệu của bạn.
-  </p>
-
-  <div class="services">
-
-    <div class="service">
-      <div class="symbol">ⓕ</div>
-      <h3>Facebook Ads</h3>
-      <p>Quảng cáo Facebook, tiếp cận khách hàng và phát triển thương hiệu.</p>
-    </div>
-
-    <div class="service">
-      <div class="symbol">♪</div>
-      <h3>TikTok Ads</h3>
-      <p>Quảng bá video, tăng độ phủ và tiếp cận khách hàng tiềm năng.</p>
-    </div>
-
-    <div class="service">
-      <div class="symbol">G</div>
-      <h3>Google Ads</h3>
-      <p>Đưa sản phẩm và dịch vụ tiếp cận khách hàng qua Google.</p>
-    </div>
-
-    <div class="service">
-      <div class="symbol">Z</div>
-      <h3>Zalo Ads</h3>
-      <p>Quảng cáo và kết nối khách hàng trên nền tảng Zalo.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- GIỚI THIỆU -->
-<section class="about" id="about">
-
-  <h2>ABOUT JUNPHAM</h2>
-
-  <p class="subtitle">
-    Creativity · Technology · Performance
-  </p>
-
-  <div class="about-content">
-    JUNPHAM là thương hiệu hoạt động trong lĩnh vực
-    Digital Advertising, tập trung vào các giải pháp
-    quảng cáo trực tuyến và phát triển thương hiệu trên
-    những nền tảng kỹ thuật số.
-    <br><br>
-    Chúng tôi hướng tới sự sáng tạo, hiệu quả và
-    trải nghiệm chuyên nghiệp.
-  </div>
-
-</section>
-
-<!-- LIÊN HỆ -->
-<section class="contact" id="contact">
-
-  <h2>CONTACT US</h2>
-
-  <p class="subtitle">
-    Hãy kết nối với JUNPHAM.
-  </p>
-
-  <div class="contact-list">
-
-    <a class="contact-item"
-       href="mailto:junjunn2866@gmail.com">
-
-      <div class="contact-icon">✉️</div>
-
-      <div class="contact-info">
-        <strong>GMAIL</strong>
-        <small>junjunn2866@gmail.com</small>
-      </div>
-
-    </a>
-
-    <a class="contact-item"
-       href="https://www.facebook.com/share/1K2LLWw6bX/?mibextid=wwXIfr"
-       target="_blank" rel="noopener noreferrer">
-
-      <div class="contact-icon">ⓕ</div>
-
-      <div class="contact-info">
-        <strong>FACEBOOK</strong>
-        <small>Connect with JUNPHAM on Facebook</small>
-      </div>
-
-    </a>
-
-    <a class="contact-item"
-       href="https://t.me/ocdads88"
-       target="_blank" rel="noopener noreferrer">
-
-      <div class="contact-icon">✈️</div>
-
-      <div class="contact-info">
-        <strong>TELEGRAM</strong>
-        <small>@ocdads88</small>
-      </div>
-
-    </a>
-
-  </div>
-
-</section>
-
 </main>
 
 <footer>
-
-  <div class="footer-logo">JUNPHAM.</div>
-
-  <p>DIGITAL ADVERTISING AGENCY</p>
-
-  <p style="margin-top:12px">
-    © 2026 JUNPHAM. All Rights Reserved.
-  </p>
-
-  <p style="margin-top:8px">
-    Creativity is intelligence having fun.
-  </p>
-
+ <div class="logo">JUNPHAM.</div>
+ DIGITAL ADVERTISING AGENCY
+ <br><br>© 2026 JUNPHAM. All Rights Reserved.
 </footer>
 
 <script>
-/* HIỆU ỨNG TUYẾT RƠI */
+/* OPEN SERVICE DETAILS */
+function showService(name) {
+ closeDetails(false);
 
+ const panel = document.getElementById("detail-" + name);
+ if (!panel) return;
+
+ panel.classList.add("active");
+ panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function closeDetails(scrollBack = true) {
+ document.querySelectorAll(".details").forEach(panel => {
+  panel.classList.remove("active");
+ });
+
+ if (scrollBack) {
+  document.getElementById("services").scrollIntoView({
+   behavior:"smooth",block:"start"
+  });
+ }
+}
+
+/* SNOW PARTICLES */
 (() => {
-  const canvas = document.getElementById("snow");
-  const ctx = canvas.getContext("2d");
+ const canvas = document.getElementById("snow");
+ const ctx = canvas.getContext("2d");
+ if (!ctx) return;
 
-  if (!ctx) return;
+ let width,height,flakes=[];
+ const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+ function resize() {
+  const dpr = Math.min(devicePixelRatio || 1,2);
+  width = innerWidth;
+  height = innerHeight;
+  canvas.width = width*dpr;
+  canvas.height = height*dpr;
+  ctx.setTransform(dpr,0,0,dpr,0,0);
 
-  let width, height;
-  let flakes = [];
+  const count = Math.min(110,Math.max(35,Math.floor(width/10)));
+  flakes = Array.from({length:count},()=>({
+   x:Math.random()*width,
+   y:Math.random()*height,
+   r:Math.random()*2+0.7,
+   v:Math.random()*1+0.4,
+   drift:Math.random()*0.5-0.25,
+   alpha:Math.random()*0.6+0.3
+  }));
+ }
 
-  function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+ function draw() {
+  ctx.clearRect(0,0,width,height);
+  flakes.forEach(f=>{
+   ctx.beginPath();
+   ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+   ctx.fillStyle=`rgba(220,245,255,${f.alpha})`;
+   ctx.shadowBlur=7;
+   ctx.shadowColor="#aeeaff";
+   ctx.fill();
 
-    width = window.innerWidth;
-    height = window.innerHeight;
+   f.y+=f.v;
+   f.x+=f.drift;
 
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
+   if(f.y>height+5){f.y=-5;f.x=Math.random()*width}
+   if(f.x>width+5)f.x=-5;
+   if(f.x< -5)f.x=width+5;
+  });
+  ctx.shadowBlur=0;
+ }
 
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+ resize();
+ addEventListener("resize",resize);
 
-    const count = Math.min(
-      130,
-      Math.max(40, Math.floor(width / 10))
-    );
-
-    flakes = Array.from({length: count}, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      r: Math.random() * 2.5 + 0.7,
-      speed: Math.random() * 1.1 + 0.35,
-      drift: Math.random() * 0.6 - 0.3,
-      opacity: Math.random() * 0.6 + 0.25
-    }));
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
-
-    flakes.forEach(f => {
-      ctx.beginPath();
-      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-
-      ctx.fillStyle = `rgba(220,245,255,${f.opacity})`;
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = "#aeeaff";
-      ctx.fill();
-
-      f.y += f.speed;
-      f.x += f.drift + Math.sin(f.y / 40) * 0.2;
-
-      if (f.y > height + 5) {
-        f.y = -5;
-        f.x = Math.random() * width;
-      }
-
-      if (f.x > width + 5) f.x = -5;
-      if (f.x < -5) f.x = width + 5;
-    });
-
-    ctx.shadowBlur = 0;
-  }
-
-  resize();
-  window.addEventListener("resize", resize);
-
-  if (reduceMotion) {
-    draw();
-  } else {
-    function animate() {
-      draw();
-      requestAnimationFrame(animate);
-    }
-    animate();
-  }
+ if(reduced){draw();return}
+ function animate(){draw();requestAnimationFrame(animate)}
+ animate();
 })();
 </script>
-
 </body>
 </html>
